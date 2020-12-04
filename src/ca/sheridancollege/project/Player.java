@@ -4,34 +4,61 @@
  * Add your name as an author and the date!
  */
 package ca.sheridancollege.project;
-
+import java.util.ArrayList;
 /**
  * A class that models each Player in the game. Players have an identifier, which should be unique.
  *
  * @author dancye
  * @author Paul Bonenfant Jan 2020
  */
-public abstract class Player{
+public class Player {
 
-    private String name; 
+    private String name; //the unique name for this player
     private int coins;
+    private ArrayList<Card> hand;
+    private String cardsToSub;
     
-    public Player(String name, int coins) {
+
+    /**
+     * A constructor that allows you to set the player's unique ID
+     *
+     * @param name the unique ID to assign to this player.
+     */
+    public Player(String name){
         this.name = name;
-        this.coins = coins;
     }
+
+    /**
+     * @return the player name
+     */
     public String getName() {
         return name;
     }
-    public int getCoin() {
-        return coins;
-    }
-   
-    public void setName(String name) {
+
+    /**
+     * Ensure that the playerID is unique
+     *
+     * @param name the player name to set
+     */
+    public void setName(String name){
         this.name = name;
     }
-    public void setCoin(int coins) {
+    
+      public int getCoins() {
+        return coins;
+    }
+    
+    public void setCoins(int coins){
         this.coins = coins;
     }
     
+      public ArrayList<Card> getHand(){
+        return hand;
+    }
+
+ 
+    public void play(){
+        
+    }
+
 }
