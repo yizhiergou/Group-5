@@ -15,7 +15,7 @@ import java.util.Collections;
  * @author dancye
  * @author Paul Bonenfant Jan 2020
  */
-public class GroupOfCards {
+public class GroupOfCards{
 
     //The group of cards, stored in an ArrayList
     private ArrayList<Card> cards;
@@ -51,5 +51,12 @@ public class GroupOfCards {
     public void setSize(int size) {
         this.size = size;
     }
+
+    @Override
+    public String toString() {
+        System.out.println("this is a test");
+        return null;
+    }
+    
 
 }//end class
