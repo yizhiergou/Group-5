@@ -31,6 +31,30 @@ public class Card {
                        JACK, 
                        QUEEN, 
                        KING}
+    
+    private Suit suit;
+    private Value value;
+    private Player own;
+    
+    
+    public Player getOwn() {
+        return own;
+    }
+
+    public void setOwn(Player own) {
+        this.own = own;
+    }
+   
+    
+    public Card(Value value, Suit suit) {
+         this.value = value;
+         this.suit = suit;
+    }
+    
+    public Card(){
+        suit = null;
+        value = null;
+    }
 
     public Value getValue() {
         return value;
@@ -49,15 +73,6 @@ public class Card {
     }
 
     
-    private Value value;
-    private Suit suit;
-    
-    
-    
-     public Card(Value value, Suit suit) {
-         this.value = value;
-         this.suit = suit;
-    }
      
      @Override
     public String toString(){

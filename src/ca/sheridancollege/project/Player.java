@@ -13,6 +13,11 @@ import java.util.ArrayList;
  */
 public class Player {
 
+    public Player(String name, int coins) {
+        this.name = name;
+        this.coins = coins;
+    }
+
     private String name; //the unique name for this player
     private int coins;
     private ArrayList<Card> hand;
@@ -27,6 +32,13 @@ public class Player {
     public Player(String name){
         this.name = name;
     }
+
+    Player() {
+    }
+
+   
+    
+
 
     /**
      * @return the player name
@@ -55,7 +67,7 @@ public class Player {
       public ArrayList<Card> getHand(){
         return hand;
     }
-
+      
  
     public void play(){
         
