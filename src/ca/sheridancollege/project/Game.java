@@ -8,6 +8,7 @@ package ca.sheridancollege.project;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 /**
 	* The class that models your game. You should create a more specific child of this class and instantiate the methods
 	* given.
@@ -16,14 +17,18 @@ import java.util.Scanner;
  	* @author Paul Bonenfant Jan 2020
  	* @Modifier Jack Farrell
 */
-public abstract class Game {
+public class Game {
 
 	    private final String name;//the title of the game
 	    private ArrayList<Player> players;// the players of the game
+	    private static ArrayList<Card> gameDeck;
 	    
-		public static void main(String[] args) {
+	    
+	    
+		public static void main(String[] args) {			 
 			System.out.println("Game is starting");
 			play();
+			
 
 		}
 		
@@ -57,12 +62,16 @@ public abstract class Game {
 	     * Play the game. This might be one method or many method calls depending on your game.
 	     */
 	    public static void play() {
+	    	Scanner userIn = new Scanner(System.in);
 	    	System.out.println("Hello and welcome to world poker stars tournament a game by Shawn, Zenan, and Jack");
 	    	System.out.println("Plaese enter your name: ");
-	    	Scanner userIn = new Scanner(System.in);
-	    	String playerName = userIn.nextLine();//FIXME Set player name with setName method
+	    	String playerName = userIn.nextLine();
+	    	Player user = new Player(playerName);
+	    	Player opponent = new Player("Bob");
 	    	
-	    	System.out.println("Hello " + playerName + ". Would you like to read the rules before you start?(Y/N)");
+	    	
+	    	
+	    	System.out.println("Hello " + user.getName() + ". Would you like to read the rules before you start?(Y/N)");
 	    	String rulesChoice = userIn.nextLine();
 	    	
 	    	if(rulesChoice.equalsIgnoreCase("Y") || rulesChoice.equalsIgnoreCase("y")) {
@@ -75,17 +84,19 @@ public abstract class Game {
 	    				+ "Then, you may bet coins based on how confident you are that your hand will beat your opponent. Once any betting is finished, \n"
 	    				+ "the cards are revealed. If your hand is more valuable then your opponents, then you win and you get your coins back and any that \n"
 	    				+ "your opponent bet. You may then chose to play another round or leave the table.");
+	    	} else if (rulesChoice.equalsIgnoreCase("N") || rulesChoice.equalsIgnoreCase("n")) {
+	    		System.out.println("Okay now lets get started");
 	    	}
 	    	System.out.println("Okay now lets get started");
-	    	//Deal cards
-	    	
-	    	
 	    }
+	    
+
 
 	    /**
 	     * When the game is over, use this method to declare and display a winning player.
 	     */
-	    public abstract void declareWinner();
+	    public void declareWinner() {
+	    	
+	    }
 
 }//end class
-
