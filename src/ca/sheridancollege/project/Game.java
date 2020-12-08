@@ -76,8 +76,15 @@ public class Game {
 	     * Play the game. This might be one method or many method calls depending on your game.
 	     */
 	    public void play() {
-	    	System.out.println("Hello and welcome to world poker stars tournament a game by Shawn, Zenan, and Jack");
-	    	System.out.println("Please enter your name: ");
+            System.out.println("|----------------------------------------------------------|");
+            System.out.println("|**********************************************************|");
+            System.out.println("|*** HELLO AND WELCOME TO WORLD POKER STARS TOURNAMENT! ***|");
+            System.out.println("|**********************************************************|"
+                    	   + "\n|********************* A Game By: *************************|"
+                    	   + "\n|**************** Shawn, Zenan, and Jack ******************|");
+            System.out.println("|**********************************************************|");
+            System.out.println("|----------------------------------------------------------|");
+    	System.out.print("\nPlease enter your name: \n> ");
 	    	Scanner userIn = new Scanner(System.in);
 	    	createPlayers();
 
@@ -116,21 +123,61 @@ public class Game {
                 
                 Player.betting();
                 
+                if(four()) {
+                	System.out.println("WOW four of a kind");
+                } else if (threeOfKind()) {
+                	System.out.println("Cool three of a kind");
+                } else if (twoPair()) {
+                	System.out.println("neat two pair");
+                }
 
 	    	
 	    }//Play method
+	    private boolean four(){
+	        if (Hand.playerHand.get(0).getValue() == Hand.playerHand.get(1).getValue()
+	                && Hand.playerHand.get(1).getValue() == Hand.playerHand.get(2).getValue()
+	                && Hand.playerHand.get(2).getValue() == Hand.playerHand.get(3).getValue()) {
+	            return true;
+	            
+	        } else if (Hand.playerHand.get(1).getValue() == Hand.playerHand.get(2).getValue()
+	                && Hand.playerHand.get(2).getValue() == Hand.playerHand.get(3).getValue()
+	                && Hand.playerHand.get(3).getValue() == Hand.playerHand.get(4).getValue()) {
+	            return true;
+	        }
+	        return false;
 
-                
-//                while(!pokerDeck.isEmpty()){
-//                    
-//                    pokerDeck.get(0).setOwn(players[playerIn]);
-//                    pokerDeck.get(1).setOwn(players[playerIn]);
-//                    pokerDeck.get(2).setOwn(players[playerIn]);
-//                    pokerDeck.get(3).setOwn(players[playerIn]);
-//                    pokerDeck.get(4).setOwn(players[playerIn]);
-//                    
-//                    System.out.println(players);
-		
+	    }// four method
+	    
+	           private boolean threeOfKind(){
+	        if ((Hand.playerHand.get(0).getValue() == Hand.playerHand.get(1).getValue()
+	                && Hand.playerHand.get(1).getValue() == Hand.playerHand.get(2).getValue())
+	                || (Hand.playerHand.get(1).getValue() == Hand.playerHand.get(2).getValue()
+	                && Hand.playerHand.get(2).getValue() == Hand.playerHand.get(3).getValue())
+	                || (Hand.playerHand.get(2).getValue() == Hand.playerHand.get(3).getValue()
+	                && Hand.playerHand.get(3).getValue() == Hand.playerHand.get(4).getValue())){
+	        return true;
+	        }
+	        return false;
+	    }//threeOfKind method
+	           
+	           private boolean twoPair() {
+	        if (Hand.playerHand.get(0).getValue() == Hand.playerHand.get(1).getValue()
+	                && Hand.playerHand.get(2).getValue() == Hand.playerHand.get(3).getValue()){
+	            return true;
+	        }
+	            else if((Hand.playerHand.get(1).getValue() == Hand.playerHand.get(2).getValue())&&
+	            (Hand.playerHand.get(3).getValue() == Hand.playerHand.get(4).getValue())){
+	                return true;
+	            }
+
+	           else if((Hand.playerHand.get(0).getValue() == Hand.playerHand.get(1).getValue())&&
+	            (Hand.playerHand.get(3).getValue() == Hand.playerHand.get(4).getValue())){
+	                return true;
+	            }else
+
+	        return false;
+	    }// twoPair method
+	
 	    /**
 	     * When the game is over, use this method to declare and display a winning player.
 	     */

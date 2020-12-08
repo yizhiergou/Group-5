@@ -57,10 +57,10 @@ public class Player {
         return hand;
     }
       
-      static int[] betting() {
-    	  int[] coinsAndPot = new int[2];
+      static double[] betting() {
+    	  double[] coinsAndPot = new double[2];
     	  boolean betPlaced = false;
-    	  int pot = 0;
+    	  double pot = 0;
     	  Scanner userIn = new Scanner(System.in);
       	  System.out.println("You have " + Player.getCoins() + " coins. Would you like to place a bet? (Y/N)");
     	  String playBetChoice = userIn.nextLine();
@@ -75,9 +75,11 @@ public class Player {
     		} 
     		else {
     			coins = coins - betCoins;
-    			pot = betCoins * 2;
+    			double oppBet = (int)Math.random() * 5 + 1;
+    			pot = betCoins + oppBet;
     			System.out.println("You have place your bet of " + betCoins + " coins. Your coin total is now " + coins + " coins. If you win you will recieve " + pot 
     					+ " coins");
+    			System.out.println("Your opponennt has bet " + oppBet);
     			betPlaced = true;
     			coinsAndPot[0] = coins;
     			coinsAndPot[1] = pot;
