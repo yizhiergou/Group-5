@@ -5,6 +5,7 @@
  */
 package ca.sheridancollege.project;
 import java.util.ArrayList;
+import java.util.Scanner;
 /**
  * A class that models each Player in the game. Players have an identifier, which should be unique.
  *
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 public class Player {
 
     private String name; //the unique name for this player
-    private int coins;
+    private static int coins;
     private ArrayList<Card> hand;
     private String cardsToSub;
     
@@ -44,17 +45,50 @@ public class Player {
         this.name = name;
     }
     
-      public int getCoins() {
+      public static int getCoins() {
         return coins;
     }
     
     public void setCoins(int coins) {
-        this.coins = coins;
+        Player.coins = coins;
     }
     
       public ArrayList<Card> getHand() {
         return hand;
     }
+      
+      static int[] betting() {
+    	  int[] coinsAndPot = new int[2];
+    	  boolean betPlaced = false;
+    	  int pot = 0;
+    	  Scanner userIn = new Scanner(System.in);
+      	  System.out.println("You have " + Player.getCoins() + " coins. Would you like to place a bet? (Y/N)");
+    	  String playBetChoice = userIn.nextLine();
+    	  
+    	  if (playBetChoice.equalsIgnoreCase("Y") || playBetChoice.equalsIgnoreCase("y")) {
+    		  
+    		  do {
+    		System.out.println("How many coins would you like to bet? ");
+    		int betCoins = userIn.nextInt();
+    		if (betCoins > coins) {
+    			System.out.println("Sorry you do not have enough coins to place that bet");
+    		} 
+    		else {
+    			coins = coins - betCoins;
+    			pot = betCoins * 2;
+    			System.out.println("You have place your bet of " + betCoins + " coins. Your coin total is now " + coins + " coins. If you win you will recieve " + pot 
+    					+ " coins");
+    			betPlaced = true;
+    			coinsAndPot[0] = coins;
+    			coinsAndPot[1] = pot;
+    			return coinsAndPot;
+    			}
+    		  } while(betPlaced == false && betPlaced != true);
+    	  }
+    	  coinsAndPot[0] = coins;
+    	  coinsAndPot[1] = 0;
+    	  return coinsAndPot;
+      }
 
     /**
      * The method to be overridden when you subclass the Player class with your specific type of Player and filled in

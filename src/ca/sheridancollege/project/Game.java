@@ -113,6 +113,10 @@ public class Game {
                 System.out.println("Please enter the cards you wish to substitue(Numbered 1-5, 0 if none)");
                 String cardSwap = userIn.nextLine();
                 Hand.subCards(Hand.playerHand, cardSwap);
+                
+                Player.betting();
+                
+
 	    	
 	    }//Play method
 

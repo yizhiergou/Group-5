@@ -69,7 +69,10 @@ public class Hand {
         for (int i = 0; i < cardSwap.length() && i < playerHand.size(); i++) {
         	
         	int x = cardSwap.charAt(i)-'0';//Converts the 1st digit the player inputs for String to int
-
+        	if(x == 0) { 
+        		System.out.println(Hand.playerHand);
+        		return playerHand;
+        	}else {
         	System.out.println(x);//FIXME TESTING ONLY REMOVE IN FINAL BUILD prints the number that is now converted
         	System.out.println(playerHand.get(x - 1));//FIXME TESTING ONLY REMIOVE IN FINAL BUILD prints the card selected by user
         	
@@ -80,6 +83,7 @@ public class Hand {
         	pokerDeck.remove(0);//removes the card from the pokerDeck that was added to the playerHand
         	
         	System.out.println(playerHand);
+        	}
 
         }
         
