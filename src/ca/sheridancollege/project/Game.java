@@ -28,7 +28,6 @@ public class Game {
 	    private Player[] players;// the players of the game
 	    private static ArrayList<Card> pokerDeck;
 
-
 		public Player[] getPlayers() {
 			return players;
 		}// getPlayers method
@@ -69,6 +68,7 @@ public class Game {
 	
 	public Game() {//Game method used to create a game object that runs the game
 		pokerDeck = new ArrayList<>();
+		Hand.playerHand = new ArrayList<>();
 		play();
 	}//Game method
 
@@ -106,7 +106,13 @@ public class Game {
            
                 System.out.println("Dealing cards");
             	
-                Hand.deal();//deals 5 cards to the player and 5 to Bob
+                Hand.deal(Hand.playerHand);//deals 5 cards to the player and 5 to Bob
+                
+                System.out.println(Hand.playerHand.size());
+                
+                System.out.println("Please enter the cards you wish to substitue(Numbered 1-5, 0 if none)");
+                String cardSwap = userIn.nextLine();
+                Hand.subCards(Hand.playerHand, cardSwap);
 	    	
 	    }//Play method
 
