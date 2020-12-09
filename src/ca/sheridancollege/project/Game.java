@@ -22,7 +22,8 @@ import ca.sheridancollege.project.Player;
  	* @author dancye
  	* @author Paul Bonenfant Jan 2020
  	* @Modifier Jack Farrell
-*/
+        * @Modifier Shawn Pattullo Dec 2020
+        */
 public class Game {
 
 	    private String name;//the title of the game
@@ -115,22 +116,11 @@ public class Game {
                 String cardSwap = userIn.nextLine();
                 Hand.subCards(Hand.playerHand, cardSwap);
 	    	
-//                playerFour(playerValid);
-//                oppFour(oppValid);
-//      if(playerValid == true && oppValid == false){
-//          System.out.println("YOU WIN THE GAME!");
+
     
     
 
 	    }//Play method
-
-                
-
-
-      
-      
-      
-      
 
 //-----------------------------------------------------------------------------------------------------
 //FOUR OF A KIND      
@@ -259,11 +249,11 @@ public boolean oppTwoPair(boolean oppValid3) {
 
         return oppValid3 = false;
     }
-
-                 
+//-----------------------------------------------------------------------------------------------------
+public void declareWinner(boolean playerValid, boolean playerValid1, boolean playerValid2, 
+        boolean playerValid3, boolean oppValid, boolean oppValid1, boolean oppValid2, boolean oppValid3){
                 
-            public void declareWinner(){
-                
+    System.out.println("lets see who wins!");
                 //playerValid - FOUR OF A KIND
                 //playerValid1 - FULL HOUSE
                 //playerValid2 - THREE OF KIND
