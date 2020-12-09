@@ -11,6 +11,8 @@ import java.util.Scanner;
  *
  * @author dancye
  * @author Paul Bonenfant Jan 2020
+ * @Modifier Jack Farrell
+ * @Modifier Shawn Pattullo
  */
 public class Player {
 

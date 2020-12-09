@@ -21,6 +21,7 @@ import ca.sheridancollege.project.Player;
  	* @author dancye
  	* @author Paul Bonenfant Jan 2020
  	* @Modifier Jack Farrell
+        * @Modifier Shawn Pattullo
 */
 public class Game {
 

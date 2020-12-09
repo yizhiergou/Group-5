@@ -10,7 +10,7 @@ import ca.sheridancollege.project.Card.Value;
 
 /**
  *
- * @author Shawn
+ * @author Shawn Pattullo
  * @modifier Jack Farrell
  */
 public class Hand {
