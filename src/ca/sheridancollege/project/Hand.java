@@ -16,7 +16,7 @@ import ca.sheridancollege.project.Card.Value;
 public class Hand {
     
     static ArrayList<Card> playerHand = new ArrayList<Card>();
-	private static ArrayList<Card> oppHand = new ArrayList<Card>();
+	static ArrayList<Card> oppHand = new ArrayList<Card>();
 	static ArrayList<Card> pokerDeck = Game.getPokerDeck();
 	
     public ArrayList<Card> getPlayerHand() {
@@ -37,10 +37,10 @@ public class Hand {
 	
     public static ArrayList<Card> deal(ArrayList<Card> playerHand){  	
     	playerHand.add(pokerDeck.get(0));//Adds five cards one at a time to the playerHand array list that is used by the player to play the game
-//    	playerHand.add(pokerDeck.get(1));
-//    	playerHand.add(pokerDeck.get(2));
-//    	playerHand.add(pokerDeck.get(3));
-//    	playerHand.add(pokerDeck.get(4));
+    	playerHand.add(pokerDeck.get(1));
+    	playerHand.add(pokerDeck.get(2));
+    	playerHand.add(pokerDeck.get(3));
+    	playerHand.add(pokerDeck.get(4));
     	pokerDeck.remove(0);// Removes the first five cards from the pokerDeck list so they cannot be taken from the pokerDeck once they are a part of the playerHand
     	pokerDeck.remove(0);
     	pokerDeck.remove(0);
@@ -57,15 +57,7 @@ public class Hand {
     	pokerDeck.remove(0);
     	pokerDeck.remove(0);
     	pokerDeck.remove(0);
-    	
-    	Card testCard1 = new Card(Value.ACE, Suit.CLUBS);
-    	Card testCard2 = new Card(Value.EIGHT, Suit.DIAMONDS);
-    	Card testCard3 = new Card(Value.ACE, Suit.SPADES);
-    	Card testCard4 = new Card(Value.EIGHT, Suit.CLUBS);
-        playerHand.add(testCard1);
-        playerHand.add(testCard2);
-        playerHand.add(testCard3);
-        playerHand.add(testCard4);
+
         System.out.println("You are dealt 5 cards:");
         System.out.println(playerHand);
         System.out.println("Opponent hand: " + oppHand);//FIXME Prints Opponents hand for testing purposes only. Remove in final build
@@ -82,12 +74,10 @@ public class Hand {
         		System.out.println(Hand.playerHand);
         		return playerHand;
         	}else {
-        	System.out.println(x);//FIXME TESTING ONLY REMOVE IN FINAL BUILD prints the number that is now converted
-        	System.out.println(playerHand.get(x - 1));//FIXME TESTING ONLY REMIOVE IN FINAL BUILD prints the card selected by user
+
         	
         	pokerDeck.add(playerHand.get(x-1));//Adds the card removed from the playerHand back to the deck
         	playerHand.remove(x -1);//Removes the card at x(the chosen number 1 - 5) minus one(cards numbered 1 - 5, in list as 0 - 4)
-        	System.out.println(pokerDeck.get(0));//FIXME TESTING ONLY REMOVE IN FINAL BUILD prints the card that will be added playerHand
         	playerHand.add(pokerDeck.get(0));//Adds a new card from the pokerDeck to the player hand
         	pokerDeck.remove(0);//removes the card from the pokerDeck that was added to the playerHand
         	

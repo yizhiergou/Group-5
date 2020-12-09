@@ -49,7 +49,7 @@ public class Player {
         return coins;
     }
     
-    public void setCoins(int coins) {
+    public static void setCoins(int coins) {
         Player.coins = coins;
     }
     
@@ -57,10 +57,10 @@ public class Player {
         return hand;
     }
       
-      static double[] betting() {
-    	  double[] coinsAndPot = new double[2];
+      static int betting() {
+    	
     	  boolean betPlaced = false;
-    	  double pot = 0;
+    	  int pot = 0;
     	  Scanner userIn = new Scanner(System.in);
       	  System.out.println("You have " + Player.getCoins() + " coins. Would you like to place a bet? (Y/N)");
     	  String playBetChoice = userIn.nextLine();
@@ -74,22 +74,17 @@ public class Player {
     			System.out.println("Sorry you do not have enough coins to place that bet");
     		} 
     		else {
-    			coins = coins - betCoins;
-    			double oppBet = (int)Math.random() * 5 + 1;
-    			pot = betCoins + oppBet;
+    			setCoins(coins - betCoins);
+    			pot = betCoins * 2;
     			System.out.println("You have place your bet of " + betCoins + " coins. Your coin total is now " + coins + " coins. If you win you will recieve " + pot 
     					+ " coins");
-    			System.out.println("Your opponennt has bet " + oppBet);
-    			betPlaced = true;
-    			coinsAndPot[0] = coins;
-    			coinsAndPot[1] = pot;
-    			return coinsAndPot;
+    			betPlaced = true;    			
+    			return pot;
     			}
     		  } while(betPlaced == false && betPlaced != true);
     	  }
-    	  coinsAndPot[0] = coins;
-    	  coinsAndPot[1] = 0;
-    	  return coinsAndPot;
+    	  
+    	     	 return pot;
       }
 
     /**
