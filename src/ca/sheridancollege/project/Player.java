@@ -13,11 +13,6 @@ import java.util.ArrayList;
  */
 public class Player {
 
-    public Player(String name, int coins) {
-        this.name = name;
-        this.coins = coins;
-    }
-
     private String name; //the unique name for this player
     private int coins;
     private ArrayList<Card> hand;
@@ -29,16 +24,9 @@ public class Player {
      *
      * @param name the unique ID to assign to this player.
      */
-    public Player(String name){
+    public Player(String name) {
         this.name = name;
     }
-
-    Player() {
-    }
-
-   
-    
-
 
     /**
      * @return the player name
@@ -52,7 +40,7 @@ public class Player {
      *
      * @param name the player name to set
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
     
@@ -60,17 +48,19 @@ public class Player {
         return coins;
     }
     
-    public void setCoins(int coins){
+    public void setCoins(int coins) {
         this.coins = coins;
     }
     
-      public ArrayList<Card> getHand(){
+      public ArrayList<Card> getHand() {
         return hand;
     }
-      
- 
-    public void play(){
-        
-    }
+
+    /**
+     * The method to be overridden when you subclass the Player class with your specific type of Player and filled in
+     * with logic to play your game.
+     */
+//    public void play() {
+//	}
 
 }
